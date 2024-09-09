@@ -1,0 +1,8 @@
+#Chapter 1
+#This is a rule written to detect and alert on a SQL injection attempt to a web server operating on port 80 or 8080. An example would be the following: http://acunetix.php.example/wordpress/wp-content/plugins/demo_vul/endpoint.php?user=-1+union+select+1,2,3,4,5,6,7,8,9,(SELECT+user_pass+FROM+wp_users+WHERE+ID=1)
+
+
+alert tcp any any -> $HOME_NET [80,8080] (msg:”SQL Injection Detected”; flow:established,to_server; http_uri; content:”/wordpress/wp-content/plugins/demo_vul/endpoint.php”; content:”union”; distance:0; http_uri; content:”select”; distance:0; nocase; content:”from”; distance:0; nocase; sid:123;)
+
+
+

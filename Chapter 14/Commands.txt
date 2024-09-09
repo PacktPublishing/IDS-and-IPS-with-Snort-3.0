@@ -1,0 +1,9 @@
+#These are the various commands that were used/discussed in Chapter 14. The lines starting with # are comments/annotations.
+
+snort3 -c snort.lua -l ~/Downloads/log/ -R ~/Downloads/Snort3/rules/local.rules --daq dump -Q -r ~/Downloads/PCAPS/http.cap
+
+#u2spewfoo command
+~/Downloads/snort3/build/tools/u2spewfoo/u2spewfoo ~/Downloads/log/unified2.log 
+
+
+

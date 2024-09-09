@@ -1,0 +1,22 @@
+###This file contains all the commands that is listed in Chapter 5
+
+
+#Snort is run with a single command-line parameter, namely -V, which prints out the Snort version. 
+
+snort -V
+
+#You may have to run this command using sudo
+sudo snort -c /usr/local/etc/snort/snort.lua -R /usr/local/etc/rules/local.rules -i ens3 -A alert_fast -s 65535 -k none
+
+#
+snort -c snort.lua --daq pcap -r ~/Downloads/PCAPS/http.cap 
+
+#The use of –tweaks, which may be used to layer the configuration.
+snort -c snort.lua –tweaks security --daq pcap -r ~/Downloads/PCAPS/http.cap 
+
+#Running Snort with just the -c command-line argument tells Snort to validate the specified configuration and exit:
+snort -c /usr/local/etc/snort/snort.lua
+
+#In addition to the configuration, we may also validate a rules file by using the -R command-line option:
+snort -c /usr/local/etc/snort/snort.lua -R /usr/local/etc/rules/local.rules
+

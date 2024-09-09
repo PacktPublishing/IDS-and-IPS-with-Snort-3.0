@@ -1,0 +1,5 @@
+#These are the various commands that were used/discussed in Chapter 9. The lines starting with # are comments/annotations.
+
+#using the help command available with Snort to list the configuration options for each module 
+
+snort3 --help-module stream_ip

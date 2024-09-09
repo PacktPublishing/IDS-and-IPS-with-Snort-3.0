@@ -1,0 +1,35 @@
+###These are the steps followed to install Snort 3 on Kali Linux as described in Chapter 4
+
+sudo apt update
+sudo apt upgrade
+
+#All the required packages are installed using the apt command, as follows:
+
+sudo apt install build-essential libpcap-dev libpcre3-dev libnet1-dev zlib1g-dev luajit hwloc libdumbnet-dev bison flex liblzma-dev openssl libssl-dev pkg-config libhwloc-dev cmake cpputest libsqlite3-dev uuid-dev libcmocka-dev libnetfilter-queue-dev libmnl-dev autotools-dev libluajit-5.1-dev libunwind-dev
+
+#Make sure /etc/ld.so.conf.d/local.conf contains the below lines without the # (Remove the #)
+#/usr/local/lib
+#/usr/local/lib64
+
+#Set up dir
+mkdir ~/snort-source-files
+cd ~/snort-source-files
+
+#Libdaq
+git clone https://github.com/snort3/libdaq.git
+cd libdaq
+./bootstrap
+./configure
+make
+sudo make install
+
+#SNort
+cd ~/snort-source-files
+git clone https://github.com/snort3/snort3.git
+
+cd snort3
+ ./configure_cmake.sh
+cd build
+make
+sudo make install
+

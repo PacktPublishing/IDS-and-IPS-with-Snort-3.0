@@ -1,0 +1,54 @@
+#The following are the steps to install Snort 3 on CentOS as described in Chapter 4
+
+sudo dnf install -y epel-release
+sudo dnf upgrade -y
+sudo reboot now
+
+#Installing build tools
+sudo dnf install -y flex bison gcc gcc-c++ make cmake automake autoconf libtool curl pkgconf
+
+#Dependencies
+sudo dnf install -y libpcap-devel 
+
+sudo dnf install -y pcre-devel libdnet-devel hwloc-devel openssl-devel zlib-devel luajit-devel libmnl-devel 
+
+#install selectively from the optional set of packages
+sudo dnf install -y libmnl-devel unwind-devel xz-devel libuuid-devel hyperscan hyperscan-devel gperftools-devel 
+
+#In order to support NFQ, we will need to install the Netfilter Netlink and Netfilter Queue packages:
+sudo dnf install -y libnfnetlink-devel libnetfilter_queue-devel
+
+#Get libdaq
+#Download libdaq source from https://www.snort.org/downloads.
+
+cd ~/Snort3
+tar -zxf ~/Downloads/libdaq-3.0.13.tar.gz
+
+
+#Install libdaq
+cd ~/Snort3
+tar -zxf ~/sources/libdaq-3.0.13.tar.gz
+
+cd libdaq-3.0.13
+./bootstrap
+./configure
+
+make
+sudo make install
+
+#Snort
+
+#Get Snort
+#Download Snort source from https://www.snort.org/downloads.
+
+cd ~/Snort3
+tar -zxf ~/Downloads/snort3-3.1.75.0.tar.gz
+
+cd ~/Snort3
+tar -zxf ~/sources/snort3-3.1.75.0.tar.gz
+
+./configure_cmake.sh
+
+cd build/
+sudo make install
+

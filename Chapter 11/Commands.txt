@@ -1,0 +1,6 @@
+#The snort command as follows: 
+./build/src/snort -c lua/snort.lua -R ~/Rules/local.rules -r ~/dcerpc_witness.pcapng -k none -l ~/Log
+
+
+
+

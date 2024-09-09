@@ -1,0 +1,12 @@
+#These are the various commands that were used/discussed in Chapter 10. The lines starting with # are comments/annotations.
+
+#The configuration options for each module can be listed using the help command available with Snort. 
+
+snort3 --help-module http_inspect
+
+#The command for http2_inspect would be as follows:
+
+snort3 --help-module http2_inspect
+
+
+

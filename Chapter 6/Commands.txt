@@ -1,0 +1,16 @@
+#These are the various commands that were used/discussed in Chapter 6. The lines starting with # are comments/annotations.
+
+
+#The configuration options for the daq module can be listed using the help command available with Snort, as follows:
+
+snort3 --help-module daq
+
+#The –daq-list option lists out all the DAQs that are available for use. This list depends on the various DAQ modules included during build time:
+
+snort --daq-list
+
+#If we want to modify one of the variables relevant to the DAQ, we can use the command-line option, --daq-var <name=value> , to do that. In the following example, we can see how the debug variable for the afpacket DAQ module is modified:
+
+sudo ./snort -c ../../lua/snort.lua -R ~/snort-source-files/snort3-community-rules/snort3-community.rules -i eth0 -A alert_fast -k none --daq afpacket --daq-var debug=true
+
+

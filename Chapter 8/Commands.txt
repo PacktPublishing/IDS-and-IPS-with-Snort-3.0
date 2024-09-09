@@ -1,0 +1,12 @@
+#These are the various commands that were used/discussed in Chapter 8. The lines starting with # are comments/annotations.
+
+#using the –-show-plugins command-line option of Snort to list the available inspectors:
+
+./build/src/snort --show-plugins
+
+
+#Using the –-help-module command (shown here with the dns module as an example):
+
+./build/src/snort --help-module dns
+
+

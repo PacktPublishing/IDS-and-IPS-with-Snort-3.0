@@ -1,0 +1,7 @@
+#Witness-DCERPC.pcap (Included in the same folder)
+#The snort signature that will detect DCERPC traffic that uses the Witness interface (UUID ccd8c074-d0e5-4a40-92b4-d074faa6ba28): 
+
+alert tcp any any -> any any (msg:"DCERPC Witness Interface"; flow:established; dce_iface: uuid ccd8c074-d0e5-4a40-92b4-d074faa6ba28; sid:2344; priority:3;)
+
+
+

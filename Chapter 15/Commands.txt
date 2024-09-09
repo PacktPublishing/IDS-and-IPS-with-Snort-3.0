@@ -1,0 +1,7 @@
+#These are the various commands that were used/discussed in Chapter 15. The lines starting with # are comments/annotations.
+
+snort –-help-module appid
+
+
+snort -c ~/snort-source-files/snort3/lua/snort.lua -r ~/Downloads/kismet-client-server-dump-1.pcap -R ~/Rules/local.rules -k none -l ~/Log
+

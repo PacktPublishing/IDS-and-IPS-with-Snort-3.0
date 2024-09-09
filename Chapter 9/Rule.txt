@@ -1,0 +1,2 @@
+alert tcp any any -> any any (msg:"Request to /index.html detected - Test"; flow:established; http_method; content:"GET"; http_uri; content:"|2F|index"; sid:123; priority:3;)
+

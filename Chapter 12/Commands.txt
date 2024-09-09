@@ -1,0 +1,23 @@
+Chapter 12
+
+#The IP reputation inspector can generate the following alerts, as shown by the --help-module command:
+
+../build/src/snort --help-module reputation
+
+
+Experiment:
+
+#In order to enable the feature, the following configuration needs to be included in the Snort configuration file. The file_id parameter specifies the location of the magic file:
+
+file_id = { rules_file = 'file_magic.rules' }
+file_policy = { }
+
+#The file_magic file includes rules such as the following that identify particular files. Each of these rules should use a unique id (the id value is 100 for this rule):
+
+file_id (msg:"PDF File Detected"; file_data; content:"%PDF-"; depth:5; offset:0; file_meta:type PDF, id 100, category “PDF file”; gid:4; sid:123;)
+
+#The result of this identification is used for further analysis. In this rule, when the rule triggers for a particular session, Snort also marks the file as a PDF (using the file_meta rule option). There is another rule option called file_type. The file_type rule option checks if the identified file is a particular type:
+
+alert file (msg:” PDF File Inbound”; file_type: PDF; content:”|2F|Type|20|EmbeddedFile”; sid:234; )
+
+

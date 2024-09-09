@@ -1,0 +1,2 @@
+#Rule
+alert tcp any any -> any any (msg:”Kismet Traffic”; appids:”kismet”; sid:12345; )

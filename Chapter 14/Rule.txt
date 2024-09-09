@@ -1,0 +1,9 @@
+#snort rule
+alert http any any -> any any (msg:"Download HTML Rule"; flow:established,to_server; http_uri; content:"|2F|download|2E|html"; http_header; content:"Host|3A 20|www|2E|ethereal|2E|com"; content:"User|2D|Agent|3A 20|Mozilla",distance 0; sid:123459991;)
+
+#pcap (http.pcap) included in folder
+
+
+
+
+

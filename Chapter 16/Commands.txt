@@ -1,0 +1,10 @@
+#These are the various commands that were used/discussed in Chapter 16. The lines starting with # are comments/annotations.
+
+#Snort2lua command
+
+./snort2lua -c snort2rules.rules -r snort3rules.rules
+
+
+#Snort2lua migrating config command
+
+./snort2lua -c  snort.conf -o snort3.lua
